@@ -1,1 +1,1 @@
-# goit-test-twitter
+# goit-test-tweets
