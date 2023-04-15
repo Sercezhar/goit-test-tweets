@@ -3,7 +3,10 @@
 
 :root {
   --black-color: #373737;
-  --pink-color: #ebd8ff;
+  --primary-color: #ebd8ff;
+  --secondary-color: #4b2a99;
+  --tertiary-color: #f5c132;
+
   --card-bg: linear-gradient(
     114.99deg,
     #471ca9 -0.99%,
@@ -23,8 +26,8 @@
 
 body {
   margin: 0;
-  color: #373737;
-  background-color: var(--pink-color);
+  color: var(--black-color);
+  background-color: var(--primary-color);
   font-size: 20px;
   line-height: 1.2;
   font-family: 'Montserrat', sans-serif;
