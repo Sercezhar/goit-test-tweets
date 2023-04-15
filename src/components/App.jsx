@@ -2,6 +2,7 @@ import { getUsers } from '@/services/users-api';
 import { useEffect, useLayoutEffect, useState } from 'react';
 import Container from './Container';
 import LoadMoreButton from './LoadMoreButton';
+import ScrollToTopButton from './ScrollToTopButton';
 import UsersList from './UsersList';
 
 const limit = 6;
@@ -44,6 +45,8 @@ function App() {
           <LoadMoreButton onLoadMore={onLoadMore} />
         )}
       </Container>
+
+      <ScrollToTopButton />
     </div>
   );
 }
