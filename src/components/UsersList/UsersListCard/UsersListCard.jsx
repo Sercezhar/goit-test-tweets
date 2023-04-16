@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import styles from './UsersListCard.module.css';
 import UsersListCardAvatar from './UsersListCardAvatar';
 import UsersListCardButton from './UsersListCardButton';
+import logo from '/logo.png';
+import speechBubble from '/speech-bubble.png';
 
 function UsersListCard({ user, toggleFollow, isFollowing, mutation }) {
   return (
@@ -12,13 +14,9 @@ function UsersListCard({ user, toggleFollow, isFollowing, mutation }) {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      <img className={styles.logo} src="/logo.png" alt="logo" />
+      <img className={styles.logo} src={logo} alt="logo" />
 
-      <img
-        className={styles.bubbles}
-        src="/speech-bubble.png"
-        alt="speech bubbles"
-      />
+      <img className={styles.bubbles} src={speechBubble} alt="speech bubbles" />
 
       <UsersListCardAvatar user={user} />
 

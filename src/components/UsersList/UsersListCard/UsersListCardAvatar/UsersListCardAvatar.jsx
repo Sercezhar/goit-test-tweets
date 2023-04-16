@@ -1,4 +1,6 @@
 import styles from './UsersListCardAvatar.module.css';
+import ellipse from '/ellipse.png';
+import rectangle from '/rectangle.png';
 
 function UsersListCardAvatar({ user }) {
   return (
@@ -10,9 +12,9 @@ function UsersListCardAvatar({ user }) {
         width="64"
       />
 
-      <img className={styles.ellipse} src="/ellipse.png" alt="ellipse" />
+      <img className={styles.ellipse} src={ellipse} alt="ellipse" />
 
-      <img src="/rectangle.png" alt="rectangle" />
+      <img src={rectangle} alt="rectangle" />
     </div>
   );
 }
