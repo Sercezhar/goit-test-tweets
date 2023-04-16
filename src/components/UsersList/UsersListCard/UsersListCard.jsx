@@ -1,10 +1,10 @@
+import logo from '@/assets/images/logo.png';
+import speechBubble from '@/assets/images/speech-bubble.png';
 import { numberWithCommas } from '@/utils';
 import { motion } from 'framer-motion';
 import styles from './UsersListCard.module.css';
 import UsersListCardAvatar from './UsersListCardAvatar';
 import UsersListCardButton from './UsersListCardButton';
-import logo from '/logo.png';
-import speechBubble from '/speech-bubble.png';
 
 function UsersListCard({ user, toggleFollow, isFollowing, mutation }) {
   return (
