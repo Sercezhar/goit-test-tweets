@@ -4,9 +4,8 @@
 
 .button {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   margin: 0 auto;
   padding: 0 28px;
   width: 196px;
@@ -15,11 +14,9 @@
   font-size: 18px;
   line-height: 1.22;
   text-transform: uppercase;
-  color: var(--black-color);
   background: var(--tertiary-color);
   box-shadow: var(--button-bs);
   border: none;
   border-radius: 10px;
-  transition: scale 200ms ease-in-out;
   cursor: pointer;
 }

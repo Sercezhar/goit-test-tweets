@@ -1,0 +1,40 @@
+.nav,
+.list {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  margin-right: 14px;
+}
+
+.link {
+  position: relative;
+  padding: 10px;
+  font-weight: 500;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  transition: color 200ms ease-in-out;
+}
+
+.active {
+  color: #fff;
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -14px;
+  transform: translate(-50%, 6px);
+  display: block;
+  width: 80%;
+  height: 10px;
+  background-color: #fff;
+  border-radius: 4px;
+  transition: transform 200ms ease-in-out;
+}
+
+.link.active::after {
+  transform: translate(-50%, 0px);
+}
