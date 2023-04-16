@@ -1,5 +1,5 @@
-import logo from '@/assets/images/logo.png';
-import speechBubble from '@/assets/images/speech-bubble.png';
+import logo from '@/images/logo.png';
+import speechBubble from '@/images/speech-bubble.png';
 import { numberWithCommas } from '@/utils';
 import { motion } from 'framer-motion';
 import styles from './UsersListCard.module.css';
