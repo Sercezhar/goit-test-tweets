@@ -1,5 +1,5 @@
-import ellipse from '@/images/ellipse.png';
-import rectangle from '@/images/rectangle.png';
+import ellipse from '/images/ellipse.png';
+import rectangle from '/images/rectangle.png';
 import styles from './UsersListCardAvatar.module.css';
 
 function UsersListCardAvatar({ user }) {
