@@ -12,15 +12,11 @@ function UsersListCard({ user, toggleFollow, isFollowing, mutation }) {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      <img
-        className={styles.logo}
-        src="src/assets/images/logo.png"
-        alt="logo"
-      />
+      <img className={styles.logo} src="/logo.png" alt="logo" />
 
       <img
         className={styles.bubbles}
-        src="src/assets/images/speech-bubble.png"
+        src="/speech-bubble.png"
         alt="speech bubbles"
       />
 
