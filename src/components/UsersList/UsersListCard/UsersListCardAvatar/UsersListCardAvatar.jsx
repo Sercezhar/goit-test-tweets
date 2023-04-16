@@ -12,11 +12,11 @@ function UsersListCardAvatar({ user }) {
 
       <img
         className={styles.ellipse}
-        src="/src/assets/images/ellipse.png"
+        src="src/assets/images/ellipse.png"
         alt="ellipse"
       />
 
-      <img src="/src/assets/images/rectangle.png" alt="rectangle" />
+      <img src="src/assets/images/rectangle.png" alt="rectangle" />
     </div>
   );
 }

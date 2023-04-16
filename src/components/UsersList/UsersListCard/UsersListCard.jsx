@@ -14,13 +14,13 @@ function UsersListCard({ user, toggleFollow, isFollowing, mutation }) {
     >
       <img
         className={styles.logo}
-        src="/src/assets/images/logo.png"
+        src="src/assets/images/logo.png"
         alt="logo"
       />
 
       <img
         className={styles.bubbles}
-        src="/src/assets/images/speech-bubble.png"
+        src="src/assets/images/speech-bubble.png"
         alt="speech bubbles"
       />
 
