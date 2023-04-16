@@ -2,8 +2,9 @@ import { numberWithCommas } from '@/utils';
 import { motion } from 'framer-motion';
 import styles from './UsersListCard.module.css';
 import UsersListCardAvatar from './UsersListCardAvatar';
+import UsersListCardButton from './UsersListCardButton';
 
-function UsersListCard({ user }) {
+function UsersListCard({ user, toggleFollow, isFollowing, mutation }) {
   return (
     <motion.li
       className={styles.card}
@@ -28,15 +29,12 @@ function UsersListCard({ user }) {
       <p className={styles.row}>{user.tweets} tweets</p>
       <p className={styles.row}>{numberWithCommas(user.followers)} followers</p>
 
-      <motion.button
-        className={styles.button}
-        type="button"
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 1 }}
-        transition={{ type: 'spring', stiffness: 500, damping: 40 }}
-      >
-        Follow
-      </motion.button>
+      <UsersListCardButton
+        user={user}
+        toggleFollow={toggleFollow}
+        isFollowing={isFollowing}
+        mutation={mutation}
+      />
     </motion.li>
   );
 }

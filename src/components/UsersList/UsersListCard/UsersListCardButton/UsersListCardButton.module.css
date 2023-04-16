@@ -1,0 +1,47 @@
+.button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 36px;
+  padding: 0 28px;
+  width: 196px;
+  height: 50px;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.22;
+  text-transform: uppercase;
+  color: var(--black-color);
+  background: var(--primary-color);
+  box-shadow: var(--button-bs);
+  border: none;
+  border-radius: 10px;
+  transition: background 200ms ease-in-out;
+  cursor: pointer;
+}
+
+.button.followed {
+  background-color: #5cd3a8;
+}
+
+.button.followed:hover {
+  background-color: #f25467;
+}
+
+.button.followed:hover:before {
+  content: 'Unfollow';
+}
+
+.button.followed:hover span {
+  display: none;
+}
+
+.button:disabled {
+  pointer-events: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
