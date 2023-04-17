@@ -29,7 +29,7 @@ function Navigation() {
             className={({ isActive }) => (isActive ? navLinkActive : navLink)}
             to="tweets"
           >
-            Users
+            Tweets
           </NavLink>
         </li>
       </ul>
