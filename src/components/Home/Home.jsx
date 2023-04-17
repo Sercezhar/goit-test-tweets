@@ -31,7 +31,7 @@ function Home() {
           whileTap={{ scale: 1 }}
           transition={{ type: 'spring', stiffness: 500, damping: 40 }}
         >
-          <Link className={styles.link} to="users">
+          <Link className={styles.link} to="tweets">
             Explore
           </Link>
         </motion.button>

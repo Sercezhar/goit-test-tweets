@@ -27,7 +27,7 @@ function Navigation() {
         <li>
           <NavLink
             className={({ isActive }) => (isActive ? navLinkActive : navLink)}
-            to="users"
+            to="tweets"
           >
             Users
           </NavLink>
