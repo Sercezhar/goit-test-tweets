@@ -19,6 +19,7 @@
 
 .active {
   color: #fff;
+  pointer-events: none;
 }
 
 .link::after {
