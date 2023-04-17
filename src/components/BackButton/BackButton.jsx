@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { BsArrowLeft } from 'react-icons/bs';
+import { HiOutlineArrowLeft } from 'react-icons/hi';
 import { useNavigate } from 'react-router-dom';
 import styles from './BackButton.module.css';
 
@@ -24,9 +24,14 @@ function BackButton() {
       exit={{ opacity: 0 }}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 1 }}
-      transition={{ type: 'spring', stiffness: 500, damping: 40 }}
+      transition={{
+        type: 'spring',
+        stiffness: 500,
+        damping: 40,
+        opacity: { delay: 0.2 },
+      }}
     >
-      <BsArrowLeft size={40} color="var(--black-color)" />
+      <HiOutlineArrowLeft size={30} color="var(--black-color)" />
     </motion.button>
   );
 }

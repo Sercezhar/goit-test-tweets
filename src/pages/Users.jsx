@@ -7,29 +7,18 @@ import { useMutation, useQuery, useQueryClient } from 'react-query';
 const limit = 6;
 
 function Users() {
-  const { data, isLoading } = useQuery({
-    queryKey: ['users'],
-    queryFn: () => getUsers(),
-  });
   const [followedUsers, setFollowedUsers] = useState(() => {
     return JSON.parse(window.localStorage.getItem('followedUsers')) ?? [];
   });
   const [currentLimit, setCurrentLimit] = useState(limit);
-
-  const paginatedUsers = !isLoading && data.slice(0, currentLimit);
-
-  const queryClient = useQueryClient();
-  const mutation = useMutation({
-    mutationFn: ({ id, followers }) => updateFollowers(id, followers),
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: ['users'] }),
-  });
+  const [filter, setFilter] = useState('all');
 
   useEffect(() => {
     window.localStorage.setItem('followedUsers', JSON.stringify(followedUsers));
   });
 
   useLayoutEffect(() => {
-    if (paginatedUsers.length === limit) {
+    if (filterUsers().length === limit) {
       return;
     }
 
@@ -38,6 +27,41 @@ function Users() {
       behavior: 'smooth',
     });
   }, [currentLimit]);
+
+  const { data, isLoading } = useQuery({
+    queryKey: ['users'],
+    queryFn: () => getUsers(),
+  });
+  const queryClient = useQueryClient();
+  const mutation = useMutation({
+    mutationFn: ({ id, followers }) => updateFollowers(id, followers),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ['users'] }),
+  });
+
+  const usersAll = !isLoading && data.slice(0, currentLimit);
+  const usersFollow =
+    !isLoading &&
+    data.filter(
+      user => !followedUsers.some(followedId => followedId === user.id)
+    );
+
+  const usersFollowings =
+    !isLoading &&
+    data.filter(user =>
+      followedUsers.some(followedId => followedId === user.id)
+    );
+
+  function filterUsers() {
+    if (filter === 'follow') {
+      return usersFollow.slice(0, currentLimit);
+    }
+
+    if (filter === 'followings') {
+      return usersFollowings.slice(0, currentLimit);
+    }
+
+    return usersAll;
+  }
 
   function toggleFollow(user, isFollowing) {
     if (!isFollowing) {
@@ -67,18 +91,27 @@ function Users() {
     setCurrentLimit(prevState => prevState + limit);
   }
 
+  const isLoadMoreButton =
+    (!isLoading && filter === 'all' && filterUsers().length < data.length) ||
+    (!isLoading &&
+      filter === 'follow' &&
+      filterUsers().length < usersFollow.length) ||
+    (!isLoading &&
+      filter === 'followings' &&
+      filterUsers().length < usersFollowings.length);
+
   return (
     <div>
       <UsersList
-        users={paginatedUsers}
+        users={filterUsers()}
         toggleFollow={toggleFollow}
         isFollowing={isFollowing}
         mutation={mutation}
+        filter={filter}
+        setFilter={setFilter}
       />
 
-      {!isLoading && paginatedUsers.length < data.length && (
-        <LoadMoreButton onLoadMore={onLoadMore} />
-      )}
+      {isLoadMoreButton && <LoadMoreButton onLoadMore={onLoadMore} />}
     </div>
   );
 }

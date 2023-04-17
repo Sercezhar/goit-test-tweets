@@ -1,11 +1,29 @@
 import BackButton from '../BackButton/BackButton';
+import Dropdown from '../Dropdown';
 import styles from './UsersList.module.css';
 import UsersListCard from './UsersListCard';
 
-function UsersList({ users, toggleFollow, isFollowing, mutation }) {
+const filterOptions = ['all', 'follow', 'followings'];
+
+function UsersList({
+  users,
+  toggleFollow,
+  isFollowing,
+  mutation,
+  filter,
+  setFilter,
+}) {
   return (
     <div>
-      <BackButton />
+      <div className={styles.options}>
+        <BackButton />
+
+        <Dropdown
+          options={filterOptions}
+          filter={filter}
+          setFilter={setFilter}
+        />
+      </div>
 
       <ul className={styles.list}>
         {users &&

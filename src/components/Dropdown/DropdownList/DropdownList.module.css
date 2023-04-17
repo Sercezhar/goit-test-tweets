@@ -1,0 +1,64 @@
+.radioGroup {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  min-width: 220px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--card-bs);
+  z-index: 1;
+}
+
+.radioLabel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 12px 10px;
+  background-color: #fff;
+  transition: background 150ms ease-in-out;
+}
+
+.radioLabel:hover {
+  background-color: var(--primary-color);
+  cursor: pointer;
+}
+
+.radioInput {
+  appearance: none;
+  display: grid;
+  place-content: center;
+  margin: 0;
+  margin-right: 8px;
+  width: 1.3em;
+  height: 1.3em;
+  background-color: #fff;
+  border: 1px solid var(--secondary-color);
+  border-radius: 50%;
+  outline: none;
+}
+
+.radioInput:disabled {
+  border-color: #ccc;
+}
+
+.radioInput::before {
+  content: '';
+  width: 0.7em;
+  height: 0.7em;
+  background-color: var(--secondary-color);
+  border-radius: 50%;
+  scale: 0;
+  transition: scale 200ms ease-in-out;
+}
+
+.radioInput:checked::before {
+  scale: 1;
+}
+
+.radioInput:disabled::before {
+  background-color: #ccc;
+}
