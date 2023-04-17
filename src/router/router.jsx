@@ -9,7 +9,7 @@ export const router = createBrowserRouter([
     element: <Layout />,
     children: [
       {
-        path: '/goit-test-tweets/',
+        index: true,
         element: <Homepage />,
       },
       {
