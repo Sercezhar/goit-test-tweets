@@ -12,6 +12,7 @@ function UsersList({
   mutation,
   filter,
   setFilter,
+  setCurrentLimit,
 }) {
   return (
     <div>
@@ -22,6 +23,7 @@ function UsersList({
           options={filterOptions}
           filter={filter}
           setFilter={setFilter}
+          setCurrentLimit={setCurrentLimit}
         />
       </div>
 

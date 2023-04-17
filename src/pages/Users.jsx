@@ -109,6 +109,7 @@ function Users() {
         mutation={mutation}
         filter={filter}
         setFilter={setFilter}
+        setCurrentLimit={setCurrentLimit}
       />
 
       {isLoadMoreButton && <LoadMoreButton onLoadMore={onLoadMore} />}

@@ -7,7 +7,7 @@ import DropdownList from './DropdownList';
 
 const cx = classNames.bind(styles);
 
-function Dropdown({ options, filter, setFilter }) {
+function Dropdown({ options, filter, setFilter, setCurrentLimit }) {
   const { ref, isOpen, setIsOpen } = useClickOutside(false);
 
   const iconClasses = cx({
@@ -18,6 +18,7 @@ function Dropdown({ options, filter, setFilter }) {
   function handleClickOnOption(option) {
     setFilter(option);
     setIsOpen(false);
+    setCurrentLimit(6);
   }
 
   return (
