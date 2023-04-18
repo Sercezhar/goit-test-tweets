@@ -22,6 +22,7 @@ function UsersList({
 
         <Dropdown
           options={filterOptions}
+          label="Filtered by:"
           filter={filter}
           setFilter={setFilter}
           setCurrentLimit={setCurrentLimit}

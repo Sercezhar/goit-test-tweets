@@ -7,7 +7,7 @@ import DropdownList from './DropdownList';
 
 const cx = classNames.bind(styles);
 
-function Dropdown({ options, filter, setFilter, setCurrentLimit }) {
+function Dropdown({ options, label = '', filter, setFilter, setCurrentLimit }) {
   const { ref, isOpen, setIsOpen } = useClickOutside(false);
 
   const iconClasses = cx({
@@ -23,14 +23,11 @@ function Dropdown({ options, filter, setFilter, setCurrentLimit }) {
 
   return (
     <div className={styles.wrapper} ref={ref}>
-      <motion.button
-        className={styles.button}
-        type="button"
-        onClick={() => setIsOpen(prevState => !prevState)}
+      <motion.div
+        className={styles.buttonWrapper}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        whileHover={{ scale: 1.1 }}
         transition={{
           type: 'spring',
           stiffness: 500,
@@ -38,9 +35,23 @@ function Dropdown({ options, filter, setFilter, setCurrentLimit }) {
           opacity: { delay: 0.2 },
         }}
       >
-        Filter
-        <FiChevronDown className={iconClasses} />
-      </motion.button>
+        <span className={styles.label}>{label}</span>
+
+        <motion.button
+          className={styles.button}
+          type="button"
+          onClick={() => setIsOpen(prevState => !prevState)}
+          whileHover={{ scale: 1.1 }}
+          transition={{
+            type: 'spring',
+            stiffness: 500,
+            damping: 40,
+          }}
+        >
+          {filter}
+          <FiChevronDown className={iconClasses} />
+        </motion.button>
+      </motion.div>
 
       {isOpen && (
         <DropdownList

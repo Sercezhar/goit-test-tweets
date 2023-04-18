@@ -5,6 +5,23 @@
   text-transform: uppercase;
 }
 
+.buttonWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.label {
+  display: none;
+  margin-right: 14px;
+  font-weight: 500;
+}
+
+@media screen and (min-width: 768px) {
+  .label {
+    display: block;
+  }
+}
+
 .button {
   display: flex;
   align-items: center;
