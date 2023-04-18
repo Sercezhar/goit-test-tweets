@@ -8,7 +8,7 @@ function BackButton() {
   const navigate = useNavigate();
 
   function onGoBack() {
-    const prevLocation = location.state?.from ?? '/goit-test-tweets/';
+    const prevLocation = location.state?.from ?? '/';
     navigate(prevLocation);
   }
 

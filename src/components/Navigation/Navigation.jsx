@@ -11,7 +11,7 @@ function Navigation() {
 
   return (
     <nav className={styles.nav}>
-      <NavLink className={styles.logo} to="/goit-test-tweets/">
+      <NavLink className={styles.logo} to="/">
         <img src={logo} width="32" alt="bird" />
       </NavLink>
 
@@ -19,7 +19,7 @@ function Navigation() {
         <li>
           <NavLink
             className={({ isActive }) => (isActive ? navLinkActive : navLink)}
-            to="/goit-test-tweets/"
+            to="/"
           >
             Home
           </NavLink>
