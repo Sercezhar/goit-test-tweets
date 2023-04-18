@@ -5,7 +5,7 @@ import { getUsers, updateFollowers } from '@/services/users-api';
 import { useEffect, useLayoutEffect, useState } from 'react';
 import { useMutation, useQuery, useQueryClient } from 'react-query';
 
-const limit = 6;
+const limit = 9;
 
 function Users() {
   const [followedUsers, setFollowedUsers] = useState(() => {

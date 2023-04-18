@@ -18,7 +18,7 @@ function Dropdown({ options, label = '', filter, setFilter, setCurrentLimit }) {
   function handleClickOnOption(option) {
     setFilter(option);
     setIsOpen(false);
-    setCurrentLimit(6);
+    setCurrentLimit(9);
   }
 
   return (
