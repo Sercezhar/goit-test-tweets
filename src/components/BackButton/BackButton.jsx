@@ -1,17 +1,15 @@
 import { motion } from 'framer-motion';
 import { HiOutlineArrowLeft } from 'react-icons/hi';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import styles from './BackButton.module.css';
 
 function BackButton() {
+  const location = useLocation();
   const navigate = useNavigate();
 
   function onGoBack() {
-    if (window.history.state && window.history.state.idx > 0) {
-      navigate(-1);
-    } else {
-      navigate('/', { replace: true });
-    }
+    const prevLocation = location.state?.from ?? '/goit-test-tweets/';
+    navigate(prevLocation);
   }
 
   return (
