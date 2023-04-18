@@ -1,6 +1,6 @@
 # Tweets
 
-Welcome to Tweets! This project is web application built with React Router, providing a platform for users to share their thoughts and connect with others. The application features a Filter functionality allowing users to sort users by "all", "follow", and "following". Pagination is also implemented with a "Load more" button for smooth navigation through the content.
+Welcome to Tweets! This project is web application built with React Router, providing a platform for users to share their thoughts and connect with others. The application features a Filter functionality allowing users to sort users by "all", "follow", and "followings". Pagination is also implemented with a "Load more" button for smooth navigation through the content.
 
 ## Features
 - Filter users by "all", "follow", and "followings" for easy user management.
