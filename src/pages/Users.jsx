@@ -1,4 +1,5 @@
 import LoadMoreButton from '@/components/LoadMoreButton';
+import Loader from '@/components/Loader';
 import UsersList from '@/components/UsersList';
 import { getUsers, updateFollowers } from '@/services/users-api';
 import { useEffect, useLayoutEffect, useState } from 'react';
@@ -102,15 +103,19 @@ function Users() {
 
   return (
     <div>
-      <UsersList
-        users={filterUsers()}
-        toggleFollow={toggleFollow}
-        isFollowing={isFollowing}
-        mutation={mutation}
-        filter={filter}
-        setFilter={setFilter}
-        setCurrentLimit={setCurrentLimit}
-      />
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <UsersList
+          users={filterUsers()}
+          toggleFollow={toggleFollow}
+          isFollowing={isFollowing}
+          mutation={mutation}
+          filter={filter}
+          setFilter={setFilter}
+          setCurrentLimit={setCurrentLimit}
+        />
+      )}
 
       {isLoadMoreButton && <LoadMoreButton onLoadMore={onLoadMore} />}
     </div>

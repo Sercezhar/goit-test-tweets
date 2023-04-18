@@ -1,0 +1,10 @@
+.notification {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 300px);
+  font-size: 48px;
+  font-weight: 700;
+  text-transform: uppercase;
+  opacity: 0.5;
+}
