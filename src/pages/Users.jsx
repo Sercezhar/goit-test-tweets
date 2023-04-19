@@ -45,7 +45,6 @@ function Users() {
     data.filter(
       user => !followedUsers.some(followedId => followedId === user.id)
     );
-
   const usersFollowings =
     !isLoading &&
     data.filter(user =>
