@@ -8,6 +8,10 @@ import { useMutation, useQuery, useQueryClient } from 'react-query';
 const limit = 9;
 
 function Users() {
+  const { data, isLoading, isSuccess } = useQuery({
+    queryKey: ['users'],
+    queryFn: () => getUsers(),
+  });
   const [followedUsers, setFollowedUsers] = useState(() => {
     return JSON.parse(window.localStorage.getItem('followedUsers')) ?? [];
   });
@@ -19,7 +23,7 @@ function Users() {
   });
 
   useLayoutEffect(() => {
-    if (filterUsers().length === limit) {
+    if (filterUsers().length <= limit) {
       return;
     }
 
@@ -29,24 +33,20 @@ function Users() {
     });
   }, [currentLimit]);
 
-  const { data, isLoading } = useQuery({
-    queryKey: ['users'],
-    queryFn: () => getUsers(),
-  });
   const queryClient = useQueryClient();
   const mutation = useMutation({
     mutationFn: ({ id, followers }) => updateFollowers(id, followers),
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ['users'] }),
   });
 
-  const usersAll = !isLoading && data.slice(0, currentLimit);
+  const usersAll = isSuccess && data.slice(0, currentLimit);
   const usersFollow =
-    !isLoading &&
+    isSuccess &&
     data.filter(
       user => !followedUsers.some(followedId => followedId === user.id)
     );
   const usersFollowings =
-    !isLoading &&
+    isSuccess &&
     data.filter(user =>
       followedUsers.some(followedId => followedId === user.id)
     );
@@ -92,13 +92,11 @@ function Users() {
   }
 
   const isLoadMoreButton =
-    (!isLoading && filter === 'all' && filterUsers().length < data.length) ||
-    (!isLoading &&
-      filter === 'follow' &&
-      filterUsers().length < usersFollow.length) ||
-    (!isLoading &&
-      filter === 'followings' &&
-      filterUsers().length < usersFollowings.length);
+    isSuccess &&
+    ((filter === 'all' && filterUsers().length < data.length) ||
+      (filter === 'follow' && filterUsers().length < usersFollow.length) ||
+      (filter === 'followings' &&
+        filterUsers().length < usersFollowings.length));
 
   return (
     <div>

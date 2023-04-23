@@ -4,7 +4,6 @@ import styles from './UsersListCard.module.css';
 import UsersListCardAvatar from './UsersListCardAvatar';
 import UsersListCardButton from './UsersListCardButton';
 import logo from '/images/logo.png';
-import speechBubble from '/images/speech-bubble.png';
 
 function UsersListCard({ user, toggleFollow, isFollowing, mutation }) {
   return (
