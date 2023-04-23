@@ -1,10 +1,10 @@
-import logo from '/images/logo.png';
-import speechBubble from '/images/speech-bubble.png';
 import { numberWithCommas } from '@/utils';
 import { motion } from 'framer-motion';
 import styles from './UsersListCard.module.css';
 import UsersListCardAvatar from './UsersListCardAvatar';
 import UsersListCardButton from './UsersListCardButton';
+import logo from '/images/logo.png';
+import speechBubble from '/images/speech-bubble.png';
 
 function UsersListCard({ user, toggleFollow, isFollowing, mutation }) {
   return (
@@ -16,7 +16,7 @@ function UsersListCard({ user, toggleFollow, isFollowing, mutation }) {
     >
       <img className={styles.logo} src={logo} alt="logo" />
 
-      <img className={styles.bubbles} src={speechBubble} alt="speech bubbles" />
+      <div className={styles.bubbles}></div>
 
       <UsersListCardAvatar user={user} />
 
